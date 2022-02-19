@@ -1,0 +1,9 @@
+# Either 'general', 'feature', 'bug' or 'other' 
+TaskType: 'other'
+
+# Whether to use content below instead of just the file name.
+UseContentInsteadOfFileName: true
+
+# Used only when UseContentInsteadOfFileName is set to true.
+Content: 
+  - 'Something was done'

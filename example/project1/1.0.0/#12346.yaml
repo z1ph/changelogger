@@ -1,0 +1,10 @@
+# Either 'general', 'feature', 'bug' or 'other' 
+TaskType: 'bug'
+
+# Whether to use content below instead of just the file name.
+UseContentInsteadOfFileName: true
+
+# Used only when UseContentInsteadOfFileName is set to true.
+Content: 
+  - '#12346'
+  - 'And another thing to mention'
