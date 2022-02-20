@@ -13,6 +13,11 @@ steps:
 - checkout: self
   persistCredentials: true
 
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'dotnet tool install -g dotnet-script'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'custom'
