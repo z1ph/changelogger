@@ -32,3 +32,11 @@ steps:
       git config --global user.name "Changelogger"
       git commit -a -m "Generated changelog.md [skip ci]"
       git push origin HEAD:$(Build.SourceBranch)
+
+- task: mirror-git-repository-vsts-task@1
+  displayName: 'Mirror Git Repository'
+  inputs:
+    sourceGitRepositoryUri: '$(Build.Repository.Uri)'
+    sourceVerifySSLCertificate: false
+    destinationGitRepositoryUri: 'https://github.com/z1ph/changelogger.git'
+    destinationGitRepositoryPersonalAccessToken: '$(githubPersonalAccessToken)'
