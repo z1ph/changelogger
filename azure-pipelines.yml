@@ -1,7 +1,3 @@
-variables:
-  G_PAT: $(githubPersonalAccessToken)
-  A_PAT: $(azureDevOpsSourcePersonalAccessToken)
-
 trigger:
 - main
 
@@ -36,8 +32,8 @@ steps:
   displayName: 'Mirror Git Repository'
   inputs:
     sourceGitRepositoryUri: 'https://dev.azure.com/ziphil-net/changelogger/_git/changelogger/'
-    sourceGitRepositoryPersonalAccessToken: '$(A_PAT)'
+    sourceGitRepositoryPersonalAccessToken: '$(azureDevOpsPersonalAccessToken)'
     sourceVerifySSLCertificate: false
     sourceGitRepositoryCloneDirectoryName: '.git-to-mirror'
     destinationGitRepositoryUri: 'https://github.com/z1ph/changelogger.git'
-    destinationGitRepositoryPersonalAccessToken: '$(G_PAT)'
+    destinationGitRepositoryPersonalAccessToken: '$(githubPersonalAccessToken)'
