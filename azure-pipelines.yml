@@ -29,8 +29,6 @@ steps:
     targetType: 'inline'
     script: |
       git config --global user.email "changelogger@example.com"
-      git config --global user.name "Changelogger" 
-      git commit -m "Generated changelog.md [skip ci]" 
+      git config --global user.name "Changelogger"
+      git commit -a -m "Generated changelog.md [skip ci]"
       git push
-
-
