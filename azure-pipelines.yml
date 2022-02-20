@@ -1,7 +1,6 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+variables:
+  G_PAT: $(githubPersonalAccessToken)
+  A_PAT: $(azureDevOpsSourcePersonalAccessToken)
 
 trigger:
 - main
@@ -37,8 +36,8 @@ steps:
   displayName: 'Mirror Git Repository'
   inputs:
     sourceGitRepositoryUri: 'https://dev.azure.com/ziphil-net/changelogger/_git/changelogger/'
-    sourceGitRepositoryPersonalAccessToken: '$(azureDevOpsSourcePersonalAccessToken)'
+    sourceGitRepositoryPersonalAccessToken: '$(A_PAT)'
     sourceVerifySSLCertificate: false
     sourceGitRepositoryCloneDirectoryName: '.git-to-mirror'
     destinationGitRepositoryUri: 'https://github.com/z1ph/changelogger.git'
-    destinationGitRepositoryPersonalAccessToken: '$(githubPersonalAccessToken)'
+    destinationGitRepositoryPersonalAccessToken: '$(G_PAT)'
