@@ -56,3 +56,9 @@ This is the header file, which content gets put above the actual changelog.
 
 - #12346
 - And another thing to mention
+
+## _Ignored
+
+### 📣 General
+
+- IgnoredEntry
