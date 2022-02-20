@@ -38,5 +38,6 @@ steps:
   inputs:
     sourceGitRepositoryUri: 'https://dev.azure.com/ziphil-net/changelogger/_git/changelogger/'
     sourceVerifySSLCertificate: false
+    sourceGitRepositoryCloneDirectoryName: '.git-to-mirror'
     destinationGitRepositoryUri: 'https://github.com/z1ph/changelogger.git'
     destinationGitRepositoryPersonalAccessToken: '$(githubPersonalAccessToken)'
