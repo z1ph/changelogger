@@ -30,10 +30,10 @@ IDeserializer deserializer = new DeserializerBuilder()
     .WithTypeConverter(new YamlStringEnumConverter(log))
     .Build();
 
-// TODO: Use CommandLineParser: https://github.com/commandlineparser/commandline
-// TODO: Take output path
-// TODO: Take output file name
-// TODO: Take header file path
+// TODO: Use CommandLineParser
+// TODO: Take output file path and name
+// TODO: Take input header file path and name (?)
+// TODO: Take debug log level
 if(Args.Count != 1) {
     throw new ArgumentException($"Please provide the relative path to project's changelog root directory as only argument.");
 }
@@ -45,7 +45,7 @@ if (!Directory.Exists(projectDirectory))
 }
 log.Information("⏱️ Assembling changelog.md for {projectDirectory} ...", projectDirectory);
 
-string headerPath = Path.Combine(projectDirectory, "header.md");
+string headerPath = Path.Combine(projectDirectory, "_header.md");
 string header = File.Exists(headerPath)
     ? File.ReadAllText(headerPath) 
     : throw new ArgumentException($"❌ {headerPath} does't exist.");
@@ -56,7 +56,11 @@ StringBuilder changelogStringBuilder = new(header.Trim());
 List<string> versionPaths = new();
 foreach (string versionDirectory in Directory.GetDirectories(projectDirectory))
 {
-    versionPaths.Add(versionDirectory);
+    if(!versionDirectory.StartsWith("_"))
+    {
+        versionPaths.Add(versionDirectory);
+    }
+    
 }
 
 versionPaths.Sort();
