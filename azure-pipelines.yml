@@ -23,3 +23,14 @@ steps:
     command: 'custom'
     custom: 'script'
     arguments: 'changelogger.csx example/project1'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'git commit -m "Generated changelog.md [skip ci]"'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'git push'
+
