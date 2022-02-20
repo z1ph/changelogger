@@ -34,9 +34,14 @@ steps:
       git push origin HEAD:$(Build.SourceBranch)
 
 - task: mirror-git-repository-vsts-task@1
-  displayName: 'Mirror Git Repository'
   inputs:
     sourceGitRepositoryUri: '$(Build.Repository.Uri)'
+    destinationGitRepositoryUri: 
+
+- task: mirror-git-repository-vsts-task@1
+  displayName: 'Mirror Git Repository'
+  inputs:
+    sourceGitRepositoryUri: 'https://dev.azure.com/ziphil-net/changelogger/_git/changelogger/'
     sourceVerifySSLCertificate: false
     destinationGitRepositoryUri: 'https://github.com/z1ph/changelogger.git'
     destinationGitRepositoryPersonalAccessToken: '$(githubPersonalAccessToken)'
