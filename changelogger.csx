@@ -137,14 +137,14 @@ private string BuildChanges(ChangeEntryTaskType section, IEnumerable<ChangeEntry
     foreach (ChangeEntryFile changeFile in entries) {
         if(!changeFile.Content.UseContentInsteadOfFileName
             || changeFile.Content.Content == null) {
-            sb.Append("- ").AppendLine(changeFile.Name);
+            sb.Append("* ").AppendLine(changeFile.Name);
             changes = 1;
             log.Debug("ℹ️ Used the file name {file} as change.", changeFile.Name);
             continue;
         }
 
         foreach (string content in changeFile.Content.Content) {
-            sb.Append("- ").AppendLine(content);
+            sb.Append("* ").AppendLine(content);
             changes++;
         }
 
