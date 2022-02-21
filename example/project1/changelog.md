@@ -35,8 +35,8 @@ This is the header file, which content gets put above the actual changelog.
 
 ### 📝 Other
 
-* #30005
 * #30004
+* #30005
 
 ## 2.0.0
 
@@ -48,8 +48,8 @@ This is the header file, which content gets put above the actual changelog.
 
 ### ✨ Features and Improvements
 
-* #15556
 * #15555
+* #15556
 
 ## 1.0.0
 
@@ -61,9 +61,3 @@ This is the header file, which content gets put above the actual changelog.
 
 * #12346
 * And another thing to mention
-
-## _Ignored
-
-### 📣 General
-
-* IgnoredEntry
