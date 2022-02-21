@@ -1,3 +1,6 @@
+variables:
+- group: 'pipeline-variables'
+
 trigger:
 - main
 
@@ -34,6 +37,7 @@ steps:
     sourceGitRepositoryUri: 'https://dev.azure.com/ziphil-net/changelogger/_git/changelogger/changelogger.git'
     sourceGitRepositoryPersonalAccessToken: '$(azureDevOpsPersonalAccessToken)'
     sourceVerifySSLCertificate: false
+
     sourceGitRepositoryCloneDirectoryName: '.git-to-mirror'
     destinationGitRepositoryUri: 'https://github.com/z1ph/changelogger.git'
     destinationGitRepositoryPersonalAccessToken: '$(githubPersonalAccessToken)'
