@@ -34,6 +34,8 @@ IDeserializer deserializer = new DeserializerBuilder()
 // TODO: Take output file path and name
 // TODO: Take input header file path and name (?)
 // TODO: Take debug log level
+// TODO: Change Type into filename (change.bug.yaml, #11111.feature.yaml)
+// TODO: Take debug log level
 if(Args.Count != 1) {
     throw new ArgumentException($"Please provide the relative path to project's changelog root directory as only argument.");
 }
@@ -56,9 +58,9 @@ StringBuilder changelogStringBuilder = new(header.Trim());
 List<string> versionPaths = new();
 foreach (string versionDirectory in Directory.GetDirectories(projectDirectory))
 {
-    var versionDir = versionDirectory.Split(Path.PathSeparator);
+    var versionDir = versionDirectory.Split(Path.DirectorySeparatorChar);
 
-    if(!versionDir[versionDirectory.Length - 1].StartsWith("_"))
+    if(!versionDir[versionDir.Length - 1].StartsWith("_"))
     {
         versionPaths.Add(versionDirectory);
     }
