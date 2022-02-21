@@ -56,11 +56,12 @@ StringBuilder changelogStringBuilder = new(header.Trim());
 List<string> versionPaths = new();
 foreach (string versionDirectory in Directory.GetDirectories(projectDirectory))
 {
-    if(!versionDirectory.StartsWith("_"))
+    var versionDir = versionDirectory.Split(Path.PathSeparator);
+
+    if(!versionDir[versionDirectory.Length - 1].StartsWith("_"))
     {
         versionPaths.Add(versionDirectory);
     }
-    
 }
 
 versionPaths.Sort();
